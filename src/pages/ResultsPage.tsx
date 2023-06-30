@@ -17,13 +17,13 @@ const ResultsPage: React.FC = () => {
           <ResultSection data={value} order={order} />
         ))}
       </div>
-      <a className="home-button"
+      <span className="home-button"
         onClick={() => {
           navigate("/");
         }}
       >
         Home
-      </a>
+      </span>
     </div>
   );
 };

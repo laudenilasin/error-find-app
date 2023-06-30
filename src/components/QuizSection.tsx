@@ -26,6 +26,7 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
       setIsRoundVisible(false);
       setIsQuestionVisible(true);
     }
+    // eslint-disable-next-line
   }, [questionCounter]);
 
   useEffect(() => {
@@ -36,13 +37,14 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
       setRoundLimit(data.questions.length);
       setQuestionLimit(data.questions[questionCounter].questions.length);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div className="quiz-section">
       {data.order === 1 && (
         <div>
-          <div className="page-title">{data.activity_name}</div>
+          <div className="question-title">{data.activity_name}</div>
           <div className="question-count">Q{questionCounter + 1}.</div>
           <div className="question-content">
             {data.questions[questionCounter].stimulus}
@@ -58,7 +60,7 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
           )}
           {isQuestionVisible && (
             <div>
-              <div className="page-title">
+              <div className="question-title">
                 {data.activity_name}
                 {` / ${
                   data.questions[roundCounter - 1].round_title
@@ -79,7 +81,7 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
       )}
       {isQuestionVisible && (
         <div className="question-selection">
-          <a
+          <span
             className="button-correct"
             onClick={() => {
               data.order === 1
@@ -107,8 +109,8 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
             }}
           >
             Correct
-          </a>
-          <a
+          </span>
+          <span
             className="button-incorrect"
             onClick={() => {
               data.order === 1
@@ -136,7 +138,7 @@ const QuizSection: React.FC<QuizSectionComponentProps> = ({ data }) => {
             }}
           >
             Incorrect
-          </a>
+          </span>
         </div>
       )}
     </div>

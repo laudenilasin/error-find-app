@@ -1,20 +1,21 @@
 import axios from "axios";
 
 export const getData = async <T>(): Promise<T> => {
-  const url = 'https://3ol4kpau8g.execute-api.ap-southeast-1.amazonaws.com/prod/proxy-server';
-  // const url = `http://localhost:4000/s3-data`;
+  const url =
+    "https://d8hvkbv3rj.execute-api.ap-southeast-1.amazonaws.com/default/proxy-server";
 
   const result = await axios
-    .get(url)
+    .get(url, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
     .then((response) => {
-      console.log(response);
       return response.data.data;
     })
     .catch((error) => {
       console.error(error);
     });
 
-    console.log(result);
   return result;
 };
- 

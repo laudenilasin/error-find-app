@@ -16,14 +16,14 @@ const ActivitiesSection: React.FC<any> = () => {
           <div className="page-content">
             {quizData.activities.map((data: any) => {
               return (
-                <a className="activity-selection"
+                <span className="activity-selection"
                   onClick={() => {
                     setQuizData(quizData.activities[data.order - 1]);
                   }}
                 >
                   &bull;
                   {data.activity_name}
-                </a>
+                </span>
               );
             })}
           </div>
